@@ -8,7 +8,7 @@ import java.util.Map;
 public class Main {
 
 	public static void main(String[] args) {
-		WeatherDescConst.initializeWeatherMapping();
+		WeatherDescCons.initializeWeatherMapping();
 		String currentPeriod = "";
 		String fullCsv = "Date, MaxTempDay, MinTempDay, Hour, AverageTemp, WeatherCode";
 		RequestHelper helper = new RequestHelper();

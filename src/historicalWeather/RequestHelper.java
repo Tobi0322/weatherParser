@@ -77,7 +77,7 @@ public class RequestHelper {
 					hour = hour.substring(0, 2)+":"+hour.substring(2, 4);
 					hourTemp = ovj.getString("tempC");
 					hourDesc = ovj.getJSONArray("weatherDesc").toString().split(":")[1].split("\"")[1];
-					hourCode = WeatherDescConst.getHourCode(hourDesc);
+					hourCode = WeatherDescCons.getHourCode(hourDesc);
 					csvString += (date+","+maxTempC+","+minTempC+","+hour+","+hourTemp+","+hourCode+","+city+","+noOfCustomers+"\n");
 
 				}

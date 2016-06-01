@@ -2,7 +2,7 @@ package historicalWeather;
 
 import java.util.HashMap;
 
-public class WeatherDescConst {
+public class WeatherDescCons {
 
 	public static String BLIZZARD = "Blizzard";
 	public static String BLOWING_SNOW = "Blowing snow";
