@@ -5,8 +5,6 @@ public class HourlyWeatherObject {
 	private String weatherDesc;
 	private int hour;
 	
-	
-	
 	public int getHour() {
 		return hour;
 	}

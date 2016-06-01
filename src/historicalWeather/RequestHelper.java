@@ -12,8 +12,9 @@ import org.json.*;
 
 public class RequestHelper {
 
-	public static JSONObject excutePost(String targetURL, String urlParameters) {
+	public static String excutePost(String targetURL, String urlParameters) {
 		HttpURLConnection connection = null;
+		String csvString = "";
 		try {
 			// Create connection
 			URL url = new URL(targetURL);
@@ -46,34 +47,32 @@ public class RequestHelper {
 
 			JSONObject object = new JSONObject(response.toString());
 			JSONObject object2 = object.getJSONObject("data");
-			JSONArray city = object2.getJSONArray("request");
 			JSONArray weather = object2.getJSONArray("weather");
+
+			String maxTempC;
+			String minTempC;
+			String date;
+			String hour;
+			String hourTemp;
+			String hourDesc;
 			System.out.println(weather.length());
-			
-			MonthlyWeatherObject allData = new MonthlyWeatherObject();
-			
 			for (int i = 0; i < weather.length(); i++) {
-				DailyWeatherObject day = new DailyWeatherObject();
-				
-				JSONObject dailyWeather = new JSONObject(weather.optString(i));
+ 				JSONObject dailyWeather = new JSONObject(weather.optString(i));
 				JSONArray arr = dailyWeather.getJSONArray("hourly");
+				minTempC = dailyWeather.getString("mintempC").toString();
+				maxTempC = dailyWeather.getString("maxtempC").toString();
+				date = dailyWeather.getString("date").toString();
 				for (int j = 0; j < arr.length(); j++) {
 					JSONObject ovj = arr.getJSONObject(j);
-					HourlyWeatherObject hour = new HourlyWeatherObject();
-					hour.setHour(ovj.getInt(""));
-					hour.setTempC(ovj.getDouble(""));
-					hour.setWeatherDesc(ovj.getString(""));
-					day.getHourlyWeatherObjects().add(hour);
+					hour = ovj.getString("time");
+					hourTemp = ovj.getString("tempC");
+					hourDesc = ovj.getJSONArray("weatherDesc").toString();
+					csvString += (date+","+maxTempC+","+minTempC+","+hour+","+hourTemp+","+hourDesc+"\n");
 				}
-				day.date = getDateFromString(dailyWeather.getString(""));
-				allData.getDays().add(day);
 			}
-			
-
-			return object;
+			return csvString;
 		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
+			return e.toString();
 		} finally {
 			if (connection != null) {
 				connection.disconnect();
@@ -81,12 +80,11 @@ public class RequestHelper {
 		}
 	}
 
-
-	private static Date getDateFromString(String date){
+	private static Date getDateFromString(String date) {
 		String[] dateSplit = date.split(".");
-		Date dateReturn = new Date(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[1]), Integer.parseInt(dateSplit[0]));
+		Date dateReturn = new Date(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[1]),
+				Integer.parseInt(dateSplit[0]));
 		return dateReturn;
 	}
-
 
 }
