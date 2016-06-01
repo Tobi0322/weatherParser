@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.json.*;
 
@@ -58,6 +61,7 @@ public class RequestHelper {
 			Integer hourCode;
 			String dateParts[];
 			System.out.println(weather.length());
+			Set<String> set = new LinkedHashSet<>();
 			for (int i = 0; i < weather.length(); i++) {
  				JSONObject dailyWeather = new JSONObject(weather.optString(i));
 				JSONArray arr = dailyWeather.getJSONArray("hourly");
@@ -77,6 +81,7 @@ public class RequestHelper {
 					hourDesc = ovj.getJSONArray("weatherDesc").toString().split(":")[1].split("\"")[1];
 					hourCode = WeatherDescConst.getHourCode(hourDesc);
 					csvString += (date+","+maxTempC+","+minTempC+","+hour+","+hourTemp+","+hourCode+"\n");
+
 				}
 			}
 			return csvString;

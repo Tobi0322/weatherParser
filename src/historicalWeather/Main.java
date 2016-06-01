@@ -2,6 +2,8 @@ package historicalWeather;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -20,8 +22,15 @@ public class Main {
 			System.out.println(currentPeriod);
 			e.printStackTrace();
 		}
+	
+	
+	
+	
 	}
 
+	
+	
+	
 	private static void generateCsvFile(String sFileName, String csvText) {
 		try {
 			FileWriter writer = new FileWriter(sFileName);
