@@ -3,9 +3,9 @@ package historicalWeather;
 public class Constants {
 
 	public static String KEYS = "";
-	public static final String TESTURL = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=95c6e11b0b85470ab7983857162505%20&q=Munich&format=json";
+	public static final String TESTURL = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=2d690fc08e3d4e21a79112630162505&format=json";
 	public static final String JSONFORMAT = "&format=json";
-	public static final String URLOFFSET = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=95c6e11b0b85470ab7983857162505%20";
+	public static final String URLOFFSET = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=2d690fc08e3d4e21a79112630162505";
 	public static final String[] PERIODS = { "&date=2013-01-01&enddate=2013-01-31",
 			"&date=2013-02-01&enddate=2013-02-28", "&date=2013-03-01&enddate=2013-03-31",
 			"&date=2013-04-01&enddate=2013-04-30", "&date=2013-05-01&enddate=2013-05-31",

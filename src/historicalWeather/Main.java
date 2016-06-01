@@ -13,24 +13,24 @@ public class Main {
 		String fullCsv = "Date, MaxTempDay, MinTempDay, Hour, AverageTemp, WeatherCode";
 		RequestHelper helper = new RequestHelper();
 		try {
-			for (String period : Constants.PERIODS) {
-				currentPeriod = period;
-				fullCsv += helper.excutePost(Constants.getTesturl() + period, "");
-				generateCsvFile("test.csv", fullCsv);
+			Cities[] cityValues = Cities.values();
+			String cityParam;
+			for (Cities city : cityValues) {
+				cityParam = "&q=" + city.englishName;
+				for (String period : Constants.PERIODS) {
+					currentPeriod = period;
+					fullCsv += helper.excutePost(Constants.getTesturl() + cityParam + period, "", city.englishName, city.population);
+					System.out.println("Period" + period);
+					generateCsvFile("test.csv", fullCsv);
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(currentPeriod);
 			e.printStackTrace();
 		}
-	
-	
-	
-	
+
 	}
 
-	
-	
-	
 	private static void generateCsvFile(String sFileName, String csvText) {
 		try {
 			FileWriter writer = new FileWriter(sFileName);

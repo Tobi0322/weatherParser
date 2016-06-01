@@ -63,7 +63,7 @@ public class WeatherDescConst {
 		weatherMapping.put(HEAVY_FREEZING_DRIZZLE.toLowerCase().trim(), 9);
 		weatherMapping.put(HEAVY_RAIN.toLowerCase().trim(), 8);
 		weatherMapping.put(HEAVY_RAIN_AT_TIMES.toLowerCase().trim(), 6);
-		weatherMapping.put(HEAVY_SNOW.toLowerCase().trim(), 5);
+		weatherMapping.put(HEAVY_SNOW.toLowerCase().trim(), 8);
 		weatherMapping.put(LIGHT_FREEZING_DRIZZLE.toLowerCase().trim(), 6);
 		weatherMapping.put(LIGHT_DRIZZLE.toLowerCase().trim(), 6);
 		weatherMapping.put(LIGHT_FREEZING_RAIN.toLowerCase().trim(), 6);
