@@ -6,8 +6,9 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) {
+		WeatherDescConst.initializeWeatherMapping();
 		String currentPeriod = "";
-		String fullCsv = "";
+		String fullCsv = "Date, MaxTempDay, MinTempDay, Hour, AverageTemp, WeatherCode";
 		RequestHelper helper = new RequestHelper();
 		try {
 			for (String period : Constants.PERIODS) {

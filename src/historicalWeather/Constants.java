@@ -20,7 +20,18 @@ public class Constants {
 			"&date=2014-10-01&enddate=2014-10-31", "&date=2014-11-01&enddate=2014-11-30",
 			"&date=2014-12-01&enddate=2014-12-31", "&date=2015-01-01&enddate=2015-01-31",
 			"&date=2015-02-01&enddate=2015-02-28", "&date=2015-03-01&enddate=2015-03-31",
-			"&date=2015-04-01&enddate=2015-04-30", "&date=2015-05-01&enddate=2015-05-31" };
+			"&date=2015-04-01&enddate=2015-04-30", "&date=2015-05-01&enddate=2015-05-31",
+			"&date=2015-02-01&enddate=2015-02-28", "&date=2015-03-01&enddate=2015-03-31",
+			"&date=2015-04-01&enddate=2015-04-30", "&date=2015-05-01&enddate=2015-05-31",
+			"&date=2015-06-01&enddate=2015-06-30", "&date=2015-07-01&enddate=2015-07-31",
+			"&date=2015-08-01&enddate=2015-08-31", "&date=2015-09-01&enddate=2015-09-30",
+			"&date=2015-10-01&enddate=2015-10-31", "&date=2015-11-01&enddate=2015-11-30",
+			"&date=2015-12-01&enddate=2015-12-31", "&date=2016-01-01&enddate=2016-01-31",
+			"&date=2016-02-01&enddate=2016-02-28", "&date=2016-03-01&enddate=2016-03-31",
+			"&date=2016-04-01&enddate=2016-04-30", "&date=2016-05-01&enddate=2016-05-31"
+
+	
+	};
 
 	public static String getKeys() {
 		return KEYS;
@@ -45,5 +56,5 @@ public class Constants {
 	public static String getTesturl() {
 		return TESTURL;
 	}
-
+ 
 }

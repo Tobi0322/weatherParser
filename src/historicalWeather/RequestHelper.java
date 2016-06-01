@@ -55,6 +55,8 @@ public class RequestHelper {
 			String hour;
 			String hourTemp;
 			String hourDesc;
+			Integer hourCode;
+			String dateParts[];
 			System.out.println(weather.length());
 			for (int i = 0; i < weather.length(); i++) {
  				JSONObject dailyWeather = new JSONObject(weather.optString(i));
@@ -62,12 +64,19 @@ public class RequestHelper {
 				minTempC = dailyWeather.getString("mintempC").toString();
 				maxTempC = dailyWeather.getString("maxtempC").toString();
 				date = dailyWeather.getString("date").toString();
+				dateParts  = date.split("-");
+				date = dateParts[1]+"."+dateParts[0]+"."+dateParts[2];
 				for (int j = 0; j < arr.length(); j++) {
 					JSONObject ovj = arr.getJSONObject(j);
 					hour = ovj.getString("time");
+					if(hour.length() ==3){
+						hour = "0"+hour;
+					}
+					hour = hour.substring(0, 2)+":"+hour.substring(2, 4);
 					hourTemp = ovj.getString("tempC");
-					hourDesc = ovj.getJSONArray("weatherDesc").toString();
-					csvString += (date+","+maxTempC+","+minTempC+","+hour+","+hourTemp+","+hourDesc+"\n");
+					hourDesc = ovj.getJSONArray("weatherDesc").toString().split(":")[1].split("\"")[1];
+					hourCode = WeatherDescConst.getHourCode(hourDesc);
+					csvString += (date+","+maxTempC+","+minTempC+","+hour+","+hourTemp+","+hourCode+"\n");
 				}
 			}
 			return csvString;
