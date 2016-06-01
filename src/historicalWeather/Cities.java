@@ -52,9 +52,9 @@ public enum Cities {
 	Halle("Halle","Saxony-Anhalt",237400),
 	Magdeburg("Magdeburg","Saxony-Anhalt",224100);
 	
-	private final String englishName;
-	private final String state;
-	private int population;
+	public final String englishName;
+	public final String state;
+	public int population;
 	
 	private Cities(String name,String state,int population){
 		this.englishName = name;
