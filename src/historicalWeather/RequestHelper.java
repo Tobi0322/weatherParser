@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
+
 import org.json.*;
 
 public class RequestHelper {
@@ -58,10 +60,13 @@ public class RequestHelper {
 				for (int j = 0; j < arr.length(); j++) {
 					JSONObject ovj = arr.getJSONObject(j);
 					HourlyWeatherObject hour = new HourlyWeatherObject();
+					hour.setHour(ovj.getInt(""));
+					hour.setTempC(ovj.getDouble(""));
+					hour.setWeatherDesc(ovj.getString(""));
 					day.getHourlyWeatherObjects().add(hour);
 				}
+				day.date = getDateFromString(dailyWeather.getString(""));
 				allData.getDays().add(day);
-				
 			}
 			
 
@@ -75,5 +80,13 @@ public class RequestHelper {
 			}
 		}
 	}
+
+
+	private static Date getDateFromString(String date){
+		String[] dateSplit = date.split(".");
+		Date dateReturn = new Date(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[1]), Integer.parseInt(dateSplit[0]));
+		return dateReturn;
+	}
+
 
 }
