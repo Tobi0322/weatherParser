@@ -2,10 +2,14 @@ package historicalWeather;
 
 public class Constants {
 
+	private static int apiCalls = 0;
+	private static int keyIndex = 0;
 	public static String KEYS = "";
-	public static final String TESTURL = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=2d690fc08e3d4e21a79112630162505&format=json";
+	public static final String[] TESTURLS = {"http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=4635083e24f2413085f82611160306","http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=2d690fc08e3d4e21a79112630162505&format=json",
+				"http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=da38107dcb6f486fb2f93725160306"};
 	public static final String JSONFORMAT = "&format=json";
-	public static final String URLOFFSET = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=2d690fc08e3d4e21a79112630162505";
+	
+	public static final String URLOFFSET = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=95c6e11b0b85470ab7983857162505";
 	public static final String[] PERIODS = { "&date=2013-01-01&enddate=2013-01-31",
 			"&date=2013-02-01&enddate=2013-02-28", "&date=2013-03-01&enddate=2013-03-31",
 			"&date=2013-04-01&enddate=2013-04-30", "&date=2013-05-01&enddate=2013-05-31",
@@ -50,11 +54,11 @@ public class Constants {
 	}
 
 	public static String getUrloffset() {
-		return URLOFFSET;
+		return TESTURLS[2];
 	}
 
 	public static String getTesturl() {
-		return TESTURL;
+		return TESTURLS[2];
 	}
  
 }

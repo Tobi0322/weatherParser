@@ -47,6 +47,11 @@ public class WeatherDescCons {
 	public static String PATCHY_LIGHT_RAIN_WITH_THUNDER = "patchy light rain in area with thunder";
 	public static String MODERATE_HEAVY_RAIN_WITH_THUNDER = "Moderate or heavy snow in area with thunder";
 	public static String MODERATE_HEAVY_SNOW_SHOWERS = "Moderate or heavy snow showers";
+	public static String MODERATE_OR_HEAVY_FREEZING_RAIN =  "moderate or heavy freezing rain";
+	public static String PATCHY_FREEZING_DIZZLE_NEARBY = "patchy freezing drizzle nearby";
+	public static String ICE_PALLETS = "ice pellets";
+	public static String LIGHT_SHOWERS_OF_ICE_PELLETS = "light showers of ice pellets";
+	
 
 	
 	public static HashMap<String, Integer> weatherMapping = new HashMap<String, Integer>();
@@ -96,6 +101,10 @@ public class WeatherDescCons {
 		weatherMapping.put(SUNNY.toLowerCase().trim(), 1);
 		weatherMapping.put(TORRENTIAL_RAIN_SHOWER.toLowerCase().trim(), 3);
 		weatherMapping.put(THUNDERY_OUTBREAKS_NEARBY.toLowerCase().trim(), 8);
+		weatherMapping.put(ICE_PALLETS.toLowerCase().trim(), 8);
+		weatherMapping.put(MODERATE_OR_HEAVY_FREEZING_RAIN.toLowerCase().trim(), 6);
+		weatherMapping.put(PATCHY_FREEZING_DIZZLE_NEARBY.toLowerCase().trim(), 5);	
+		weatherMapping.put(LIGHT_SHOWERS_OF_ICE_PELLETS.toLowerCase().trim(), 7);
 	}
 	public static int getHourCode(String hourDesc) {
 		try {
